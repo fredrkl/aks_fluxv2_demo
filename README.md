@@ -1,2 +1,3 @@
-# aks_fluxv2_demo
-Testing out Flux v2 on AKS
+# AKS Flux v2 add on demø
+
+AKS has a built-in integration with Flux v2. This repo is a demo of how to use it.
