@@ -19,12 +19,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
-    - name: Cache Terraform modules
-      uses: actions/cache@v3
-      id: cache
-      with:
-        path: ./terraform
-        key: ${{ runner.os }}-terraform-${{ hashFiles('terraform/**/*.tf') }}
     - name: Az CLI login
       uses: azure/login@v1
       with:
