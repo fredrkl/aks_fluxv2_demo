@@ -14,6 +14,23 @@ AKS has a built-in integration with Flux v2. This repo is demoing it.
 - Create a storage account and update the main.tf backend configuration with the storage account name and container name.
 - Be sure to give the _Azure Entra Application_ you created permissions to the _Storage Account_ you are going to use with the _Storage Blob Data Contributor_ role and _Storage Account Key Operator Service Role_ role.
 
+## Pre-commit hooks for terraform files (optional)
+
+> :exclamation: The pre-commit hooks are only running on staged files.
+
+To set up pre-commit hooks for terraform files, run the following commands:
+
+```bash
+brew install pre-commit
+pre-commit install
+```
+
+If you want to uninstall the pre-commit hooks, run the following command:
+
+```bash
+pre-commit uninstall
+```
+
 ## Using Azure Storage Account for Terraform state
 
 The Terraform state is stored in an Azure Storage Account configured in the ./terraform/main.tf file.
