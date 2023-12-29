@@ -10,7 +10,7 @@ run "valid_resource_group" {
   command = apply
 
   assert {
-    condition     = azurerm_resource_group.resouce_group.name == "flux-unit-test"
+    condition     = azurerm_resource_group.resource_group.name == "flux-unit-test"
     error_message = "Resource group not created"
   }
 }
