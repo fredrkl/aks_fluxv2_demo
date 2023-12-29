@@ -47,17 +47,18 @@ provider "azurerm" {
 #   }
 #   
 #   
-#   terraform {
-#     required_version = ">= 1.6"
-#     required_providers {
-#       azurerm = {
-#         source  = "hashicorp/azurerm"
-#         version = "3.77.0"
-#       }
-#     }
-#     backend "azurerm" {
-#       resource_group_name  = "terraform-state-files"
-#       storage_account_name = "terraformdemostatefiles"
-#       container_name       = "terraform-demo-tfstate"
-#       key                  = "terraform.tfstate"
-#     }
+terraform {
+  required_version = ">= 1.6"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "3.85.0"
+    }
+  }
+  backend "azurerm" {
+    resource_group_name  = "terraform-state-files"
+    storage_account_name = "terraformdemostatefiles"
+    container_name       = "aks-fluxv2-demo-tfstate"
+    key                  = "terraform.tfstate"
+  }
+}
