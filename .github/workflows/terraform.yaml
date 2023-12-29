@@ -46,23 +46,12 @@ jobs:
       if: always()
       with:
         sarif_file: 'trivy-results.sarif'
-#    - name: Setup TFLint
-#      uses: terraform-linters/setup-tflint@v4.0.0
-#    - name: Init TFLint
-#      run: tflint --init
-#      working-directory: ./terraform
-#      env:
-#        # https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting
-#        GITHUB_TOKEN: ${{ github.token }}
-#    - name: Run TFLint
-#      working-directory: ./terraform
-#      run: tflint --recursive
-#    - name: Terraform Plan
-#      working-directory: ./terraform
-#      run: |
-#        terraform plan -out=tfplan -var="location=eastus" -var="name_prefix=test"
-#        terraform-bin show -json -no-color tfplan > tfplan.json
-#        terraform-bin show -no-color tfplan >> $GITHUB_STEP_SUMMARY
+    - name: Terraform Plan
+      working-directory: ./terraform
+      run: |
+        terraform plan -out=tfplan
+        terraform-bin show -json -no-color tfplan > tfplan.json
+        terraform-bin show -no-color tfplan >> $GITHUB_STEP_SUMMARY
 #    - name: Terraform Test
 #      working-directory: ./terraform
 #      run: |
