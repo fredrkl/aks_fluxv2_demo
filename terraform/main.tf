@@ -2,7 +2,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "aks" {
+resource "azurerm_resource_group" "resource_group" {
   name     = "aks-flux-addon-demo"
   location = "eastus"
 }

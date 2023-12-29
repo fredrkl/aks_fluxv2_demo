@@ -34,6 +34,10 @@ jobs:
     - name: Terraform Validate
       working-directory: ./terraform
       run: terraform validate
+    - name: Terraform Test
+      working-directory: ./terraform
+      run: |
+        terraform test
     - name: Run Trivy vulnerability scanner in IaC mode
       uses: aquasecurity/trivy-action@master
       with:
