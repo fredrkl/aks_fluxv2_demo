@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 run "valid_resource_group" {
-  command = create
+  command = apply
 
   assert {
     condition     = azurerm_resource_group.resouce_group.id != null
