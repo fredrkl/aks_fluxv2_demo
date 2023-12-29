@@ -2,6 +2,11 @@ provider "azurerm" {
   features {}
 }
 
+resource "azurerm_resource_group" "aks" {
+  name     = "aks-flux-addon-demo"
+  location = "eastus"
+}
+
 #   resource "azurerm_storage_account" "storage" {
 #     location                 = "eastus"
 #     name                     = "examplestorageaccount"
@@ -22,10 +27,6 @@ provider "azurerm" {
 #     }
 #   }
 #   
-#   resource "azurerm_resource_group" "example" {
-#     name     = "${var.name_prefix}-tf-workflowgroup"
-#     location = var.location // change this to "northeurope" to see the error
-#   }
 #   
 #   check "storage_account_name_is_valid" {
 #     assert {
