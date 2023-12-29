@@ -1,0 +1,12 @@
+repos:
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.50.0 # Use the latest release version from the repo.
+  hooks:
+  - id: terraform_fmt
+    files: ^terraform/.*\.tf$
+- repo: https://github.com/mxab/pre-commit-trivy.git
+  rev: v0.8.0
+  hooks:
+  - id: trivyconfig-docker
+    args:
+    - ./terraform
