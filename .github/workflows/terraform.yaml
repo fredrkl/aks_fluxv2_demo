@@ -2,6 +2,7 @@ name: Terraform
 on:
   - push
   - workflow_dispatch
+concurrency: main
 
 permissions: write-all
 
