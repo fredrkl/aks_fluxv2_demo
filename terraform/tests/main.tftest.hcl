@@ -27,8 +27,7 @@ run "valid_srorage_account" {
   command = apply
 
   module {
-    source = "./modules/storage_account"
-
+    source = "./modules/storageaccount"
     resource_group = run.setup_tests.resource_group
   }
 
