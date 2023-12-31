@@ -28,7 +28,11 @@ run "valid_srorage_account" {
 
   module {
     source = "./modules/storageaccount"
-    resource_group = run.setup_tests.resource_group
+    resource_group = {
+      name = run.setup_tests.resource_group.name
+      location = run.setup_tests.resource_group.location
+      id = run.setup_tests.resource_group.id
+    }
   }
 
   assert {
