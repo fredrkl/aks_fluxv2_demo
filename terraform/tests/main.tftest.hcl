@@ -23,16 +23,17 @@ run "setup_tests"{
   }
 }
 
-run "valid_srorage_account" {
+run "valid_storage_account" {
   command = apply
 
   module {
-    source = "./modules/storageaccount"
-    resource_group = {
-      name = run.setup_tests.resource_group.name
-      location = run.setup_tests.resource_group.location
-      id = run.setup_tests.resource_group.id
-    }
+    source  = "./modules/storageaccount"
+    name    = run.setup_tests.storage_account.name
+#    resource_group = {
+#      name      = run.setup_tests.resource_group.name
+#      location  = run.setup_tests.resource_group.location
+#      id        = run.setup_tests.resource_group.id
+    #}
   }
 
   assert {
