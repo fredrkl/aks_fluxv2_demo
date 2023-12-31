@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "resource_group" {
 }
 
 resource "random_pet" "rg" {
-  length = 4
+  length = 1
 }
 
 output "resource_group" {
