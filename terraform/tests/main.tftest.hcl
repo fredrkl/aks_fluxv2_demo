@@ -2,9 +2,9 @@ provider "azurerm" {
   features {}
 }
 
-variables {
-  resource_group_name = "flux-unit-test"
-}
+#variables {
+#  resource_group_name = "flux-unit-test"
+#}
 
 #run "valid_resource_group" {
 #  command = apply
@@ -16,22 +16,24 @@ variables {
 #}
 
 run "setup_tests"{
+  command = apply
+
   module {
     source = "./tests/setup"
   }
 }
 
-#run "valid_srorage_account" {
-#  command = apply
-#
-#  module {
-#    source = "./modules/storage_account"
-#
-#    resource_group = var.resource_group_name
-#  }
-#
-#  assert {
-#    condition     = azurerm_storage_account.storage_account.name == "name"
-#    error_message = "Storage account not created"
-#  }
-#}
+run "valid_srorage_account" {
+  command = apply
+
+  module {
+    source = "./modules/storage_account"
+
+    resource_group = run.setup_tests.resource_group
+  }
+
+  assert {
+    condition     = azurerm_storage_account.storage_account.name == "name"
+    error_message = "Storage account not created"
+  }
+}
