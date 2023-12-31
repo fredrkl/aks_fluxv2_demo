@@ -14,3 +14,18 @@ run "valid_resource_group" {
     error_message = "Resource group not created"
   }
 }
+
+run "valid_srorage_account" {
+  command = apply
+
+  module {
+    source = "./modules/storage_account"
+
+    resource_group_name = var.resource_group_name
+  }
+
+  assert {
+    condition     = azurerm_storage_account.storage_account.name == "name"
+    error_message = "Storage account not created"
+  }
+}
