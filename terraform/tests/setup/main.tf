@@ -7,11 +7,13 @@ resource "azurerm_resource_group" "resource_group" {
   location = "eastus"
 }
 
-
 resource "random_pet" "rg" {
   length = 4
 }
 
+output "resource_group" {
+  value = azurerm_resource_group.resource_group
+}
 
 terraform {
   required_version = ">= 1.6"
