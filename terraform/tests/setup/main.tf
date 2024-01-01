@@ -14,6 +14,7 @@ resource "random_pet" "rg" {
 resource "random_string" "storage_account_name" {
   length  = 8
   special = false
+  upper   = false
 }
 
 output "storage_account_name" {
