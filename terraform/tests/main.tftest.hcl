@@ -41,7 +41,7 @@ run "valid_storage_account" {
 #}
 
   assert {
-    condition     = azurerm_storage_account.storage_account.name == "name"
+    condition     = azurerm_storage_account.storage.name == run.setup_tests.storage_account_name
     error_message = "Storage account not created"
   }
 }
