@@ -6,7 +6,7 @@
 #  description = "The resource group object"
 #}
 
-variable "name" {
+variable "resource_group_name" {
   type        = string
   description = "The name of the storage account"
 }

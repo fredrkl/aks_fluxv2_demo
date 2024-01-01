@@ -27,8 +27,12 @@ run "valid_storage_account" {
   command = apply
 
   module {
-    source  = "../modules/storageaccount"
-    name    = run.setup_tests.storage_account.name
+    source  = "./modules/storageaccount"
+  }
+
+  variables {
+    resource_group_name = run.setup_tests.resource_group.name
+  }
 #    resource_group = {
 #      name      = run.setup_tests.resource_group.name
 #      location  = run.setup_tests.resource_group.location
