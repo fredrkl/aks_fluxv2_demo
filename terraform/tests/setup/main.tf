@@ -11,6 +11,15 @@ resource "random_pet" "rg" {
   length = 1
 }
 
+resource "random_string" "storage_account_name" {
+  length  = 8
+  special = false
+}
+
+output "storage_account_name" {
+  value = random_string.storage_account_name
+}
+
 output "resource_group" {
   value = azurerm_resource_group.resource_group
 }

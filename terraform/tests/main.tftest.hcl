@@ -31,7 +31,8 @@ run "valid_storage_account" {
   }
 
   variables {
-    resource_group_name = run.setup_tests.resource_group.name
+    resource_group_name  = run.setup_tests.resource_group.name
+    storage_account_name = run.setup_tests.storage_account.name
   }
 #    resource_group = {
 #      name      = run.setup_tests.resource_group.name
