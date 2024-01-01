@@ -37,8 +37,7 @@ run "valid_storage_account" {
 #      name      = run.setup_tests.resource_group.name
 #      location  = run.setup_tests.resource_group.location
 #      id        = run.setup_tests.resource_group.id
-    #}
-  }
+#}
 
   assert {
     condition     = azurerm_storage_account.storage_account.name == "name"
