@@ -17,7 +17,7 @@ resource "random_string" "storage_account_name" {
 }
 
 output "storage_account_name" {
-  value = random_string.storage_account_name
+  value = random_string.storage_account_name.result
 }
 
 output "resource_group" {
