@@ -15,7 +15,7 @@ resource "random_string" "storage_account_name" {
   length  = 8
   special = false
   upper   = false
-  number  = false
+  numeric = false
 }
 
 output "storage_account_name" {
