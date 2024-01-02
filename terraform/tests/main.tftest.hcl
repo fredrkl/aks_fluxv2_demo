@@ -2,19 +2,6 @@ provider "azurerm" {
   features {}
 }
 
-#variables {
-#  resource_group_name = "flux-unit-test"
-#}
-
-#run "valid_resource_group" {
-#  command = apply
-#
-#  assert {
-#    condition     = azurerm_resource_group.resource_group.name == "flux-unit-test"
-#    error_message = "Resource group not created"
-#  }
-#}
-
 run "setup_tests"{
   command = apply
 
@@ -34,11 +21,6 @@ run "valid_storage_account" {
     resource_group_name  = run.setup_tests.resource_group.name
     storage_account_name = run.setup_tests.storage_account_name
   }
-#    resource_group = {
-#      name      = run.setup_tests.resource_group.name
-#      location  = run.setup_tests.resource_group.location
-#      id        = run.setup_tests.resource_group.id
-#}
 
   assert {
     condition     = azurerm_storage_account.storage.name == run.setup_tests.storage_account_name
