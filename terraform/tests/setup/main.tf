@@ -18,6 +18,17 @@ resource "random_string" "storage_account_name" {
   numeric = false
 }
 
+resource "random_string" "cluster_name" {
+  length  = 8
+  special = false
+  upper   = false
+  numeric = false
+}
+
+output "cluster_name" {
+  value = random_string.cluster_name.result
+}
+
 output "storage_account_name" {
   value = random_string.storage_account_name.result
 }

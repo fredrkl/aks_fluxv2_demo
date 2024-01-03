@@ -1,6 +1,6 @@
 variable "resource_group_name" {
   type        = string
-  description = "The name of the storage account"
+  description = "The resource group name"
 }
 
 variable "storage_account_name" {
