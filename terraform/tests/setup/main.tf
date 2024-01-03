@@ -2,10 +2,10 @@ provider "azurerm" {
   features {}
 }
 
-#resource "azurerm_resource_group" "resource_group" {
-#  name     = random_pet.rg.id
-#  location = "eastus"
-#}
+resource "azurerm_resource_group" "resource_group" {
+  name     = random_pet.rg.id
+  location = "eastus"
+}
 
 resource "random_pet" "rg" {
   length = 1
@@ -33,8 +33,8 @@ output "storage_account_name" {
   value = random_string.storage_account_name.result
 }
 
-output "resource_group_name" {
-  value = "aks_fluxv2_demo_testingrg"
+output "resource_group" {
+  value = azurerm_resource_group.resource_group
 }
 
 terraform {
