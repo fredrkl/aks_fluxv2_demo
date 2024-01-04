@@ -18,6 +18,13 @@ resource "random_string" "vnet_name" {
   numeric = false
 }
 
+resource "random_string" "vnet_name_second" {
+  length  = 8
+  special = false
+  upper   = false
+  numeric = false
+}
+
 resource "random_string" "storage_account_name" {
   length  = 8
   special = false
@@ -42,6 +49,10 @@ output "storage_account_name" {
 
 output "vnet_name" {
   value = random_string.vnet_name.result
+}
+
+output "vnet_name_second" {
+  value = random_string.vnet_name_second.result
 }
 
 output "resource_group" {

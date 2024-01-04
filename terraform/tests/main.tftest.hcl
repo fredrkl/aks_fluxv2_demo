@@ -23,6 +23,7 @@ run "valid_vnet" {
 
   variables {
     vnet_name           = run.setup_tests.vnet_name
+    vnet_name_second    = run.setup_tests.vnet_name_second
     resource_group_name = run.setup_tests.resource_group.name
   }
 
@@ -30,8 +31,12 @@ run "valid_vnet" {
     condition     = azurerm_virtual_network.vnet.name == run.setup_tests.vnet_name
     error_message = "Wrong vnet name"
   }
-}
 
+  assert {
+    condition     = azurerm_virtual_network.vnet_second.name == run.setup_tests.vnet_name_second
+    error_message = "Wrong second vnet name"
+  }
+}
 
 #run "valid_storage_account" {
 #  command = apply

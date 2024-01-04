@@ -1,3 +1,8 @@
+variable "vnet_name_second" {
+  type        = string
+  description = "The name of the second virtual network"
+}
+
 variable "vnet_name" {
   type        = string
   description = "The name of the virtual network"

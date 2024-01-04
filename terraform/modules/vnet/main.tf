@@ -9,6 +9,17 @@ resource "azurerm_virtual_network" "vnet" {
   resource_group_name = var.resource_group_name
 }
 
-output "vnet_name" {
-  value = azurerm_virtual_network.vnet.name
+resource "azurerm_virtual_network" "vnet_second" {
+  address_space       = ["10.1.0.0/16"]
+  location            = "eastus"
+  name                = var.vnet_name_second
+  resource_group_name = var.resource_group_name
 }
+
+#output "vnet_name" {
+# value = azurerm_virtual_network.vnet.name
+#
+#
+#utput "vnet_name_second" {
+# value = azurerm_virtual_network.vnet_second.name
+
