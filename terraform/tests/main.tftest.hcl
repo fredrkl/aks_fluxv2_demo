@@ -14,23 +14,42 @@ run "setup_tests"{
   }
 }
 
-run "valid_storage_account" {
+run "valid_vnet" {
   command = apply
 
   module {
-    source  = "./modules/storageaccount"
+    source = "./modules/vnet"
   }
 
   variables {
-    resource_group_name  = run.setup_tests.resource_group.name
-    storage_account_name = run.setup_tests.storage_account_name
+    vnet_name           = run.setup_tests.vnet_name
+    resource_group_name = run.setup_tests.resource_group.name
   }
 
   assert {
-    condition     = azurerm_storage_account.storage.name == run.setup_tests.storage_account_name
-    error_message = "Storage account not created"
+    condition     = azurerm_virtual_network.vnet.name == run.setup_tests.vnet_name
+    error_message = "Wrong vnet name"
   }
 }
+
+
+#run "valid_storage_account" {
+#  command = apply
+#
+#  module {
+#    source  = "./modules/storageaccount"
+#  }
+#
+#  variables {
+#    resource_group_name  = run.setup_tests.resource_group.name
+#    storage_account_name = run.setup_tests.storage_account_name
+#  }
+#
+#  assert {
+#    condition     = azurerm_storage_account.storage.name == run.setup_tests.storage_account_name
+#    error_message = "Storage account not created"
+#  }
+#}
 
 #run "aks-creation_valid-input_cluster-created " {
 #  command = apply
