@@ -15,11 +15,3 @@ resource "azurerm_virtual_network" "vnet_second" {
   name                = var.vnet_name_second
   resource_group_name = var.resource_group_name
 }
-
-#output "vnet_name" {
-# value = azurerm_virtual_network.vnet.name
-#
-#
-#utput "vnet_name_second" {
-# value = azurerm_virtual_network.vnet_second.name
-
