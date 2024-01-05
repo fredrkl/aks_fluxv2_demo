@@ -26,7 +26,6 @@ run "aks-creation" {
     condition     = azurerm_virtual_network.vnet_aks.name == "vnet_aks"
     error_message = "Wrong vnet name"
   }
-
 }
 
 #run "aks-creation_valid-input_cluster-created " {
