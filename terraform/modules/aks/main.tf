@@ -11,7 +11,7 @@ resource "azurerm_aks" "aks" {
   default_node_pool {
     name       = "default"
     node_count = var.node_count
-    vm_size    = var.node_size_vm_size
+    vm_size    = var.node_vm_size
   }
 
   lifecycle {
@@ -33,7 +33,5 @@ resource "azurerm_aks" "aks" {
     type = "SystemAssigned"
   }
 
-  tags = {
-    Environment = "Production"
-  }
+  tags = var.tags
 }
