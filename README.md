@@ -35,7 +35,6 @@ pre-commit uninstall
 
 The Terraform state is stored in an Azure Storage Account configured in the ./terraform/main.tf file.
 
-
 ## Build status (main branch)
 
 [![Terraform](https://github.com/fredrkl/aks_fluxv2_demo/actions/workflows/terraform.yaml/badge.svg)](https://github.com/fredrkl/aks_fluxv2_demo/actions/workflows/terraform.yaml)
