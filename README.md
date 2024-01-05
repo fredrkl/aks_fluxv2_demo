@@ -33,7 +33,7 @@ pre-commit uninstall
 
 ## Using Azure Storage Account for Terraform state
 
-The Terraform state is stored in an Azure Storage Account configured in the ./terraform/main.tf file.
+The Terraform state is stored in an Azure Storage Account configured in the `./terraform/main.tf` file.
 
 ## Terraform Test
 
