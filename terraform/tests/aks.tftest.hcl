@@ -21,6 +21,12 @@ run "aks-creation" {
   module {
     source = "./modules/aks"
   }
+
+  assert {
+    condition     = azurerm_virtual_network.vnet_aks.name == "vnet_aks"
+    error_message = "Wrong vnet name"
+  }
+
 }
 
 #run "aks-creation_valid-input_cluster-created " {
