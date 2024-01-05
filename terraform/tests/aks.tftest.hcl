@@ -15,7 +15,7 @@ run "aks-creation" {
 
   variables {
     resource_group_name = run.setup_tests.resource_group.name
-    location            = run.setup_tests.location
+    location            = run.setup_tests.resource_group.location
   }
 
   module {
