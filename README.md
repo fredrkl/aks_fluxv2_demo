@@ -35,6 +35,10 @@ pre-commit uninstall
 
 The Terraform state is stored in an Azure Storage Account configured in the ./terraform/main.tf file.
 
+## Terraform Test
+
+The repo uses Terraform Test with a setup function `./terraform/tests/setup/main.tf` to test the Terraform code.
+
 ## Build status (main branch)
 
 [![Terraform](https://github.com/fredrkl/aks_fluxv2_demo/actions/workflows/terraform.yaml/badge.svg)](https://github.com/fredrkl/aks_fluxv2_demo/actions/workflows/terraform.yaml)
