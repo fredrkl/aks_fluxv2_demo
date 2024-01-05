@@ -13,6 +13,11 @@ run "setup_tests"{
 run "aks-creation" {
   command = apply
 
+  variables {
+    resource_group_name = run.setup_tests.resource_group.name
+    location            = run.setup_tests.location
+  }
+
   module {
     source = "./modules/aks"
   }

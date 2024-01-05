@@ -1,17 +1,17 @@
-#variable "resource_group_name" {
-#  type        = string
-#  description = "The name of the storage account"
-#}
+variable "resource_group_name" {
+  type        = string
+  description = "The name of the storage account"
+}
 #
 #variable "cluster_name" {
 #  type        = string
 #  description = "cluster name"
 #}
 #
-#variable "location" {
-#  type        = string
-#  description = "location"
-#}
+variable "location" {
+  type        = string
+  description = "location"
+}
 #
 #variable "node_count" {
 #  type        = number
