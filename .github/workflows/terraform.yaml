@@ -29,6 +29,18 @@ jobs:
         client-id: ${{ secrets.azure_client_id }}
         tenant-id: ${{ secrets.azure_tenant_id }}
         subscription-id: ${{ secrets.azure_subscription_id }}
+    - name: Run Trivy vulnerability scanner in IaC mode
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'config'
+        scan-ref: './terraform'
+        format: sarif
+        output: trivy-results.sarif
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
     - name: Terraform Init
       working-directory: ./terraform
       run: terraform init
@@ -42,18 +54,6 @@ jobs:
       working-directory: ./terraform
       run: |
         terraform test
-    - name: Run Trivy vulnerability scanner in IaC mode
-      uses: aquasecurity/trivy-action@master
-      with:
-        scan-type: 'config'
-        scan-ref: './terraform'
-        format: sarif
-        output: trivy-results.sarif
-    - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v2
-      if: always()
-      with:
-        sarif_file: 'trivy-results.sarif'
     - name: Terraform Plan
       working-directory: ./terraform
       run: |
