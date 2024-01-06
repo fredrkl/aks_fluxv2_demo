@@ -2,19 +2,11 @@ provider "azurerm" {
   features {}
 }
 
-#resource "azurerm_virtual_network" "vnet_aks" {
-#  name                = "vnet_aks"
-#  address_space       = ["11.0.0.0/24"]
-#  location            = var.location
-#  resource_group_name = var.resource_group_name
-#}
-
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.resource_group_name
   location            = var.location
   resource_group_name = var.resource_group_name
   dns_prefix          = var.location
-  #  kubernetes_version  = var.kubernetes_version
 
   default_node_pool {
     name       = "default"
