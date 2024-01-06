@@ -23,7 +23,7 @@ run "aks-creation" {
   }
 
   assert {
-    condition     = azurerm_kubernetes_cluster.aks.name == run.setup_tests.resource_group_name
+    condition     = azurerm_kubernetes_cluster.aks.name == run.setup_tests.resource_group.name
     error_message = "Wrong aks name"
   }
 }
