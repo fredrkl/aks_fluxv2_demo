@@ -23,8 +23,8 @@ run "aks-creation" {
   }
 
   assert {
-    condition     = azurerm_virtual_network.vnet_aks.name == "vnet_aks"
-    error_message = "Wrong vnet name"
+    condition     = azurerm_kubernetes_cluster.name == run.setup_tests.resource_group_name
+    error_message = "Wrong aks name"
   }
 }
 
