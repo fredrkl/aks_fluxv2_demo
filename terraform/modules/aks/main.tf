@@ -9,7 +9,7 @@ provider "azurerm" {
 #  resource_group_name = var.resource_group_name
 #}
 
-resource "azurerm_aks" "aks" {
+resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.resource_group_name
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -18,6 +18,7 @@ resource "azurerm_aks" "aks" {
   default_node_pool {
     name       = "default"
     node_count = 1
+    vm_size    = "Standard_D2_v2"
   }
 
   lifecycle {
