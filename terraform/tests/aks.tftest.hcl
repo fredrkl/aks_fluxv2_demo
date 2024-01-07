@@ -28,7 +28,7 @@ run "aks-creation" {
   }
 
   assert {
-    condition     = azurerm_kubernetes_cluster_extension.name == "flux"
+    condition     = azurerm_kubernetes_cluster_extension.flux.name == "flux"
     error_message = "Wrong extension name"
   }
 }
