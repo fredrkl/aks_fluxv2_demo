@@ -1,5 +1,11 @@
 provider "azurerm" {
   features {}
+
+  skip_provider_registration = true
+}
+
+resource "azurerm_resource_provider_registration" "kubernetes" {
+  name = "Microsoft.Kubernetes"
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
