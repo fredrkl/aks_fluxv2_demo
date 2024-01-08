@@ -8,6 +8,10 @@ resource "azurerm_resource_provider_registration" "kubernetes" {
   name = "Microsoft.Kubernetes"
 }
 
+resource "azurerm_resource_provider_registration" "kubernetes" {
+  name = "Microsoft.KubernetesConfiguration"
+}
+
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.resource_group_name
   location            = var.location
