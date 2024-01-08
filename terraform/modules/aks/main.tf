@@ -4,13 +4,16 @@ provider "azurerm" {
   skip_provider_registration = true
 }
 
-resource "azurerm_resource_provider_registration" "kubernetes" {
-  name = "Microsoft.Kubernetes"
-}
-
-resource "azurerm_resource_provider_registration" "kubernetesconfiguration" {
-  name = "Microsoft.KubernetesConfiguration"
-}
+# Depends on the following resources:
+# resource "azurerm_resource_provider_registration" "kubernetes" {
+#   name = "Microsoft.Kubernetes"
+# }
+#
+# resource "azurerm_resource_provider_registration" "kubernetesconfiguration" {
+#   name = "Microsoft.KubernetesConfiguration"
+# }
+# The reason for not registering them as part of this module is that the tests will fail since 
+# the login is done before registering them, thus the access token misses the required permissions.
 
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = var.resource_group_name
