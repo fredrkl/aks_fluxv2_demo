@@ -1,3 +1,4 @@
+# If you want to use a spesific `subscription` for this test, add it to the provider configuration
 provider "azurerm" {
   features {}
 }
