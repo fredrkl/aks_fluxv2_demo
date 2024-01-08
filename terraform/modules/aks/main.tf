@@ -8,7 +8,7 @@ resource "azurerm_resource_provider_registration" "kubernetes" {
   name = "Microsoft.Kubernetes"
 }
 
-resource "azurerm_resource_provider_registration" "kubernetes" {
+resource "azurerm_resource_provider_registration" "kubernetesconfiguration" {
   name = "Microsoft.KubernetesConfiguration"
 }
 
