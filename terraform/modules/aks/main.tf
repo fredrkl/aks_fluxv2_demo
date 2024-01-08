@@ -45,9 +45,3 @@ resource "azurerm_kubernetes_cluster_extension" "flux" {
   cluster_id     = azurerm_kubernetes_cluster.aks.id
   extension_type = "microsoft.flux"
 }
-
-resource "azurerm_role_assignment" "tf_flux" {
-  scope                = azurerm_kubernetes_cluster.aks.id
-  role_definition_name = "Azure Kubernetes Service Contributor"
-  principal_id         = "a97e1737-c63d-4b47-9d48-983a320329e5" # terraform-demo
-}
