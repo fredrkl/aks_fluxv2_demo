@@ -51,8 +51,8 @@ jobs:
       working-directory: ./terraform
       run: terraform validate
     - name: Terraform Test
-      env:
-        TF_LOG: DEBUG
+      #      env:
+      #        TF_LOG: DEBUG
       working-directory: ./terraform
       run: |
         terraform test
