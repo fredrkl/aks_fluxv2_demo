@@ -24,7 +24,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
     - name: Az CLI login
-      uses: azure/login@v1
+      uses: Azure/login@v1.5.1
       with:
         client-id: ${{ secrets.azure_client_id }}
         tenant-id: ${{ secrets.azure_tenant_id }}
