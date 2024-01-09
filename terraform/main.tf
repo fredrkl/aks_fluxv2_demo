@@ -8,9 +8,10 @@ resource "azurerm_resource_group" "resource_group" {
 }
 
 module "aks" {
-  source              = "./modules/aks"
-  resource_group_name = azurerm_resource_group.resource_group.name
-  location            = azurerm_resource_group.resource_group.location
+  source                = "./modules/aks"
+  resource_group_name   = azurerm_resource_group.resource_group.name
+  location              = azurerm_resource_group.resource_group.location
+  admin_group_object_id = "caaf54e9-1e67-4cd6-9063-b8a3c8ace3a2"
 }
 
 terraform {
