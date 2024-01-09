@@ -14,6 +14,16 @@ AKS has a built-in integration with Flux v2. This repo is demoing it.
 - Create a storage account and update the main.tf backend configuration with the storage account name and container name.
 - Be sure to give the _Azure Entra Application_ you created permissions to the _Storage Account_ you are going to use with the _Storage Blob Data Contributor_ role and _Storage Account Key Operator Service Role_ role.
 
+### Register provider
+
+The following providers are used in the Terraform code and needs to be registered in the Azure Subscription:
+
+```bash
+az provider register --namespace Microsoft.Kubernetes
+az provider register --namespace Microsoft.ContainerService
+az provider register --namespace Microsoft.KubernetesConfiguration
+```
+
 ## Pre-commit hooks for terraform files (optional)
 
 > :exclamation: The pre-commit hooks are only running on staged files.
