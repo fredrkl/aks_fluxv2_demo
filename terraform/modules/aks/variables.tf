@@ -8,6 +8,11 @@ variable "resource_group_name" {
 #  description = "cluster name"
 #}
 #
+variable "admin_group_object_id" {
+  type        = string
+  description = "admin group object id"
+}
+
 variable "location" {
   type        = string
   description = "location"

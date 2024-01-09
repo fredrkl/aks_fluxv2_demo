@@ -15,8 +15,9 @@ run "aks-creation" {
   command = apply
 
   variables {
-    resource_group_name = run.setup_tests.resource_group.name
-    location            = run.setup_tests.resource_group.location
+    resource_group_name   = run.setup_tests.resource_group.name
+    location              = run.setup_tests.resource_group.location
+    admin_group_object_id = "caaf54e9-1e67-4cd6-9063-b8a3c8ace3a2"
   }
 
   module {

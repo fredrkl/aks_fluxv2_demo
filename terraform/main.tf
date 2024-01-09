@@ -7,6 +7,12 @@ resource "azurerm_resource_group" "resource_group" {
   location = "eastus"
 }
 
+module "aks" {
+  source              = "./modules/aks"
+  resource_group_name = azurerm_resource_group.resource_group.name
+  location            = azurerm_resource_group.resource_group.location
+}
+
 terraform {
   required_version = ">= 1.6"
   required_providers {
