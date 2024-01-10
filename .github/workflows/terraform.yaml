@@ -58,7 +58,7 @@ jobs:
     - name: Terraform Plan
       working-directory: ./terraform
       run: |
-        terraform plan -out=tfplan -var="resource_group_name=aks_addon"
+        terraform plan -out=tfplan -var="resource_group_name=aks_flux_addon"
         terraform-bin show -json -no-color tfplan > tfplan.json
         terraform-bin show -no-color tfplan >> $GITHUB_STEP_SUMMARY
     - name: Terraform Apply
