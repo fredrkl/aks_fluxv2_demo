@@ -13,7 +13,7 @@ module "aks" {
   location              = azurerm_resource_group.resource_group.location
   admin_group_object_id = "caaf54e9-1e67-4cd6-9063-b8a3c8ace3a2"
 
-  count = 0
+  count = 1
 }
 
 terraform {
