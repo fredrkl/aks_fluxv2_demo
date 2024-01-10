@@ -23,7 +23,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
   default_node_pool {
     name       = "default"
-    node_count = 1
+    node_count = 3
     vm_size    = "Standard_D2_v2"
   }
 
@@ -39,8 +39,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 }
 
-#resource "azurerm_kubernetes_cluster_extension" "flux" {
-#  name           = "flux"
-#  cluster_id     = azurerm_kubernetes_cluster.aks.id
-#  extension_type = "microsoft.flux"
-#}
+resource "azurerm_kubernetes_cluster_extension" "flux" {
+  name           = "flux"
+  cluster_id     = azurerm_kubernetes_cluster.aks.id
+  extension_type = "microsoft.flux"
+}
