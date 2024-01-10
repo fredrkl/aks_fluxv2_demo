@@ -1,8 +1,8 @@
-provider "azurerm" {
-  features {}
-
-  skip_provider_registration = true
-}
+#provider "azurerm" {
+#  features {}
+#
+#  skip_provider_registration = true
+#}
 
 # Depends on the following resources:
 # resource "azurerm_resource_provider_registration" "kubernetes" {
