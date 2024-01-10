@@ -37,22 +37,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
       microsoft_defender
     ]
   }
-
-  network_profile {
-    network_plugin    = "azure"
-    network_policy    = "calico"
-    dns_service_ip    = "10.0.0.10"
-    service_cidr      = "10.0.0.0/16"
-    load_balancer_sku = "standard"
-  }
-
-  identity {
-    type = "SystemAssigned"
-  }
 }
 
-resource "azurerm_kubernetes_cluster_extension" "flux" {
-  name           = "flux"
-  cluster_id     = azurerm_kubernetes_cluster.aks.id
-  extension_type = "microsoft.flux"
-}
+#resource "azurerm_kubernetes_cluster_extension" "flux" {
+#  name           = "flux"
+#  cluster_id     = azurerm_kubernetes_cluster.aks.id
+#  extension_type = "microsoft.flux"
+#}
