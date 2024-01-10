@@ -49,6 +49,12 @@ The Terraform state is stored in an Azure Storage Account configured in the `./t
 
 The repo uses Terraform Test with a setup function `./terraform/tests/setup/main.tf` to test the Terraform code.
 
+## Notes
+
+<https://github.com/hashicorp/terraform-provider-azurerm/issues/15011#issuecomment-1573414838>
+@tiwood i played with it a bit and it looks like azurerm_kubernetes_cluster_extension can install the flux cluster extension fine but not the fluxconfiguration.
+Additionally, if you add a fluxconfiguration with some other way (az cli), terraform can no longer destroy the extension.
+
 ## Build status (main branch)
 
 [![Terraform](https://github.com/fredrkl/aks_fluxv2_demo/actions/workflows/terraform.yaml/badge.svg)](https://github.com/fredrkl/aks_fluxv2_demo/actions/workflows/terraform.yaml)
