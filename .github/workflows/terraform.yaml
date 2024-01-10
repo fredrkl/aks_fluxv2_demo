@@ -50,12 +50,11 @@ jobs:
     - name: Terraform Validate
       working-directory: ./terraform
       run: terraform validate
-#    - name: Terraform Test
-#      #      env:
-#      #        TF_LOG: DEBUG
-#      working-directory: ./terraform
-#      run: |
-#        terraform test
+    - name: Terraform Test
+      if: false # temporarly disable step
+      working-directory: ./terraform
+      run: |
+        terraform test
     - name: Terraform Plan
       working-directory: ./terraform
       run: |
