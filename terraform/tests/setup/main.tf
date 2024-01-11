@@ -4,7 +4,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "resource_group" {
   name     = random_pet.rg.id
-  location = "eastus"
+  location = "northeurope"
 }
 
 resource "random_pet" "rg" {
