@@ -38,4 +38,9 @@ run "aks-creation" {
     condition     = azurerm_kubernetes_cluster.aks.network_profile[0].network_plugin == "azure"
     error_message = "Wrong network plugin"
   }
+
+  assert {
+    condition     = azurerm_kubernetes_cluster.aks.local_account_disabled == true
+    error_message = "Local account should be disabled"
+  }
 }
