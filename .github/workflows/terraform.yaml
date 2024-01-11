@@ -51,7 +51,7 @@ jobs:
       working-directory: ./terraform
       run: terraform validate
     - name: Terraform Test
-      if: false # temporarly disable step
+      if: true # temporarly disable step
       working-directory: ./terraform
       run: |
         terraform test

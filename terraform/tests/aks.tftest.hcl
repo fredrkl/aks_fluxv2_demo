@@ -29,10 +29,10 @@ run "aks-creation" {
     error_message = "Wrong aks name"
   }
 
-#  assert {
-#    condition     = azurerm_kubernetes_cluster_extension.flux.name == "flux"
-#    error_message = "Wrong extension name"
-#  }
+  assert {
+    condition     = azurerm_kubernetes_cluster_extension.flux.name == "flux"
+    error_message = "Wrong extension name"
+  }
 #  assert {
 #    condition     = azurerm_kubernetes_cluster.aks.network_profile[0].network_plugin == "azure"
 #    error_message = "Wrong network plugin"
