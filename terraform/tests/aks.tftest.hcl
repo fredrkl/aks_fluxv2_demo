@@ -35,7 +35,7 @@ run "aks-creation" {
   }
 
   assert {
-    condition     = azurerm_kubernetes_cluster.aks.network_profile.network_plugin == "azure"
+    condition     = azurerm_kubernetes_cluster.aks.network_profile[0].network_plugin == "azure"
     error_message = "Wrong network plugin"
   }
 }
