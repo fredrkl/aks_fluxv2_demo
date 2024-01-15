@@ -46,7 +46,7 @@ run "aks-creation" {
 
   assert {
     condition     = azurerm_kubernetes_cluster.aks.network_profile[0].network_policy == "cilium"
-    error_message = "Missing ebpf data plane"
+    error_message = "Missing cilium network policy"
   }
 
   assert {
