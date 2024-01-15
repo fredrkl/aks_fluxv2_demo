@@ -40,6 +40,16 @@ run "aks-creation" {
   }
 
   assert {
+    condition     = azurerm_kubernetes_cluster.aks.network_profile[0].ebpf_data_plane == "cilium"
+    error_message = "Missing ebpf data plane"
+  }
+
+  assert {
+    condition     = azurerm_kubernetes_cluster.aks.network_profile[0].network_policy == "cilium"
+    error_message = "Missing ebpf data plane"
+  }
+
+  assert {
     condition     = azurerm_kubernetes_cluster.aks.local_account_disabled == true
     error_message = "Local account should be disabled"
   }
