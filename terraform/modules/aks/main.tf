@@ -28,7 +28,9 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 
   network_profile {
-    network_plugin = "azure"
+    network_plugin  = "azure"
+    ebpf_data_plane = "cilium"
+    network_policy  = "cilium"
   }
 
   identity {
