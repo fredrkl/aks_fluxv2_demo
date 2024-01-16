@@ -35,8 +35,13 @@ run "aks-creation" {
   }
 
   assert {
-    condition     = azurerm_kubernetes_cluster.aks.default_node_pool.pod_subnet_id == azurerm_virtual_network.pod.id
+    condition     = azurerm_kubernetes_cluster.aks.default_node_pool.pod_subnet_id == azurerm_subnet.pod.id
     error_message = "Wrong pod subnet"
+  }
+  
+  assert {
+    condition     = azurerm_kubernetes_cluster.aks.default_node_pool.vnet_subnet_id == azurerm_subnet.nodes.id
+    error_message = "Missing node subnet"
   }
 
   assert {

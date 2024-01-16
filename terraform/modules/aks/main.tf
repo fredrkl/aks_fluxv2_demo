@@ -32,8 +32,8 @@ resource "azurerm_subnet" "nodes" {
 resource "azurerm_subnet" "pod" {
   name                 = "aks-pod"
   resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.0.0/24"]
+  virtual_network_name = azurerm_virtual_network.vnet.name
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
@@ -43,10 +43,11 @@ resource "azurerm_kubernetes_cluster" "aks" {
   dns_prefix          = var.location
 
   default_node_pool {
-    name          = "default"
-    node_count    = 3
-    vm_size       = "Standard_D2_v2"
-    pod_subnet_id = azurerm_subnet.pod.id
+    name           = "default"
+    node_count     = 3
+    vm_size        = "Standard_D2_v2"
+    vnet_subnet_id = azurerm_subnet.nodes.id
+    pod_subnet_id  = azurerm_subnet.pod.id
   }
 
   network_profile {
