@@ -16,7 +16,7 @@
 # the login is done before registering them, thus the access token misses the required permissions.
 
 resource "azurerm_virtual_network" "vnet" {
-  address_space       = ["10.0.0.0/16"]
+  address_space       = ["192.168.0.0/16"]
   location            = var.location
   name                = "aks-vnet"
   resource_group_name = var.resource_group_name
@@ -25,14 +25,14 @@ resource "azurerm_virtual_network" "vnet" {
 resource "azurerm_subnet" "nodes" {
   name                 = "aks-nodes"
   resource_group_name  = var.resource_group_name
-  address_prefixes     = ["10.0.1.0/27"]
+  address_prefixes     = ["192.168.1.0/27"]
   virtual_network_name = azurerm_virtual_network.vnet.name
 }
 
 resource "azurerm_subnet" "pod" {
   name                 = "aks-pod"
   resource_group_name  = var.resource_group_name
-  address_prefixes     = ["10.0.0.0/24"]
+  address_prefixes     = ["192.168.0.0/24"]
   virtual_network_name = azurerm_virtual_network.vnet.name
 }
 
