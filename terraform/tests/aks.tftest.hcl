@@ -30,6 +30,16 @@ run "aks-creation" {
   }
 
   assert {
+    condition     = azurerm_kubernetes_cluster.aks.default_node_pool.name == "default"
+    error_message = "Wrong default node pool name"
+  }
+
+  assert {
+    condition     = azurerm_kubernetes_cluster.aks.default_node_pool.pod_subnet_id == azurerm_virtual_network.pod.id
+    error_message = "Wrong pod subnet"
+  }
+
+  assert {
     condition     = azurerm_kubernetes_cluster_extension.flux.name == "flux"
     error_message = "Wrong extension name"
   }
