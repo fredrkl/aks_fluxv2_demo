@@ -22,19 +22,18 @@ resource "azurerm_virtual_network" "vnet" {
   resource_group_name = var.resource_group_name
 }
 
-resource "azurerm_virtual_network" "nodes" {
-  address_space       = ["10.0.1.0/27"]
-  location            = var.location
-  name                = "aks-nodes"
-  resource_group_name = var.resource_group_name
+resource "azurerm_subnet" "nodes" {
+  name                 = "aks-nodes"
+  resource_group_name  = var.resource_group_name
+  address_prefixes     = ["10.0.1.0/27"]
+  virtual_network_name = azurerm_virtual_network.vnet.name
 }
 
-
-resource "azurerm_virtual_network" "pod" {
-  address_space       = ["10.0.0.0/24"]
-  location            = var.location
-  name                = "aks-pod"
-  resource_group_name = var.resource_group_name
+resource "azurerm_subnet" "pod" {
+  name                 = "aks-pod"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.0.0.0/24"]
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
@@ -47,7 +46,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     name          = "default"
     node_count    = 3
     vm_size       = "Standard_D2_v2"
-    pod_subnet_id = azurerm_virtual_network.pod.id
+    pod_subnet_id = azurerm_subnet.pod.id
   }
 
   network_profile {
