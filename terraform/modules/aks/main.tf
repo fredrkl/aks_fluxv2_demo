@@ -42,6 +42,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
   resource_group_name = var.resource_group_name
   dns_prefix          = var.location
 
+  local_account_disabled = true
+
   default_node_pool {
     name           = "default"
     node_count     = 3
