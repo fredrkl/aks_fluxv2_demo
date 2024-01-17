@@ -68,4 +68,9 @@ run "aks-creation" {
     condition     = azurerm_kubernetes_cluster.aks.local_account_disabled == true
     error_message = "Local account should be disabled"
   }
+
+  assert {
+    condition     = azurerm_kubernetes_cluster.aks.azure_active_directory_role_based_access_control[0].managed == true
+    error_message = "Azure AD Integration must be enabled"
+  }
 }
