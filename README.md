@@ -49,10 +49,12 @@ The Terraform state is stored in an Azure Storage Account configured in the `./t
 
 The repo uses Terraform Test with a setup function `./terraform/tests/setup/main.tf` to test the Terraform code.
 
-Terraform Test enables TDD. Try to write the test before the code, e.g.,
+Terraform Test enables TDD, and testing the modules in isolation in a controlled environment. Try to write the test before the code, e.g.,
 
 - [Failing test](https://github.com/fredrkl/aks_fluxv2_demo/commit/f0b02b9f257c8ed78ef234913acd71263c41273e)
 - [Passing test](https://github.com/fredrkl/aks_fluxv2_demo/commit/370035a322a512e10f44f8667438ed050f91edc9)
+
+- [Failing test due to misconfiguration](https://github.com/fredrkl/aks_fluxv2_demo/actions/runs/7538534956/job/20519248990)
 
 ## Build status (main branch)
 
