@@ -44,6 +44,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
 
   local_account_disabled = true
 
+  azure_active_directory_role_based_access_control {
+    managed = true
+  }
+
   default_node_pool {
     name           = "default"
     node_count     = 3
