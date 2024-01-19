@@ -39,6 +39,8 @@ Terraform Test enables TDD, and testing the modules in isolation in a controlled
 
 - [Failing test due to misconfiguration](https://github.com/fredrkl/aks_fluxv2_demo/actions/runs/7538534956/job/20519248990)
 
+By writing the test first, you can be sure that the code you write is testable. Terraform test running localy enables a faster developer flow. It also helps you to early think about code design.
+
 ## Cilium networking policy
 
 ```mermaid
