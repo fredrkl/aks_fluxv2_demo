@@ -41,6 +41,23 @@ Terraform Test enables TDD, and testing the modules in isolation in a controlled
 
 By writing the test first, you can be sure that the code you write is testable. Terraform test running localy enables a faster developer flow. It also helps you to early think about code design.
 
+### Inner developer loop
+
+Terraform Test can run locally, thus enabling a faster _inner developer workflow_. The `backend configuration` needs to be mocked out with a backend we have access to from our local machine and that does not store any "real" state, e.g., the `test` environment.
+
+The CWD need to be `terraform` in this repo. The subscriptions you choose need to have a storage account and a container for the state. Remember to update the values of the `./terraform/mock.azurerm.tfbackend`. You need to update the storage account name to soemthing globaly unique. Additionaly in this particular case you need to enable the `Microsoft.KubernetesConfiguration` resource provider.
+
+```bash
+az account set --subscription <subscription_id>
+terraform init -backend-config=mock.azurerm.tfbackend
+```
+
+You should now be able to run the tests locally:
+
+```bash
+terraform test
+```
+
 ## Cilium networking policy
 
 ```mermaid
